@@ -1,0 +1,68 @@
+{% extends 'gymapp/main.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/entrenadores.css' %}" />
+    
+    <div class="contenedor">
+        <img src="{% static 'img/leocoach.jpeg' %}" alt="Mi Imagen" class="imagen-central">
+        <a href="https://www.instagram.com/leo.coachpersonal?igsh=MWhueHFleTIxOTJ1NA==" target="_blank">
+            <img src="{% static 'img/ig.png' %}" alt="Instagram" class="icono-instagram">
+        </a>
+    </div>
+    <br>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>RUT</th>
+                <th>Edad</th>
+                <th>Género</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Especialidad</th>
+                <th>Alumnos</th>
+                <th>Eliminar Alumno</th>
+                <th>Agregar Alumno</th>
+            </tr>
+            {% for profesional in profesionales %}
+            <tr>
+                <td>{{ profesional.nombre }}</td>
+                <td>{{ profesional.apellido }}</td>
+                <td>{{ profesional.rut }}</td>
+                <td>{{ profesional.edad }}</td>
+                <td>{{ profesional.get_genero_display }}</td>
+                <td>{{ profesional.telefono }}</td>
+                <td>{{ profesional.email }}</td>
+                <td>{{ profesional.especialidad }}</td>
+                <td>
+                    <ul>
+                        {% for alumno in profesional.alumnos.all %}
+                        <li>{{ alumno.nombre }} {{ alumno.apellido }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    {% for alumno in profesional.alumnos.all %}
+                    <form action="{% url 'eliminar_alumno' alumno.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Eliminar</button>
+                    </form>
+                    {% endfor %}
+                </td>
+                <td>
+                    <form action="{% url 'agregar_cliente_gimnasio' profesional.id %}" method="post">
+                        {% csrf_token %}
+                     
+                        <button type="submit">Agregar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  
+{% endblock %}

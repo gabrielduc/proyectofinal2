@@ -1,0 +1,33 @@
+{% extends 'gymapp/main.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+<!-- CSS -->
+<link rel="stylesheet" href="{% static 'css/servicios.css' %}" />
+
+<section class="services-section">
+    <div class="service-card" onclick="mostrarMensaje('Básico')">
+        <div class="service-title">
+            <h2>Plan Básico</h2>
+        </div>
+            <p>Incluye el uso de todo el equipamiento del gimnasio.</p>
+        <div class="service-value">
+            <p> $30,000 x Mes</p>
+        </div>
+    </div>
+
+    <div class="service-card" onclick="mostrarMensaje('Premium')">
+        <div class="service-title">
+            <h2>Plan Premium</h2>
+        </div>
+            <p>Incluye el uso de todo el equipamiento del gimnasio y clases guiadas por el coach.</p>
+        <div class="service-value">
+            <p>$60,000 x Mes</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

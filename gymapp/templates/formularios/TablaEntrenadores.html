@@ -1,0 +1,58 @@
+{% extends 'gymapp/main.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/entrenadores.css' %}" />
+    
+    <div class="contenedor">
+        <img src="{% static 'img/leocoach.jpeg' %}" alt="Mi Imagen" class="imagen-central">
+        <a href="https://www.instagram.com/leo.coachpersonal?igsh=MWhueHFleTIxOTJ1NA==" target="_blank">
+            <img src="{% static 'img/ig.png' %}" alt="Instagram" class="icono-instagram">
+        </a>
+    </div>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre Entrenador</th>
+                <th>Apellido Entrenador</th>
+                <th>RUT</th>
+                <th>Edad</th>
+                <th>Género</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Especialidad</th>
+                <th>Alumnos</th>
+                <th>Eliminar alumno</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in profesionales %}
+            <tr>
+                <td>{{ p.nombre }}</td>
+                <td>{{ p.apellido }}</td>
+                <td>{{ p.rut }}</td>
+                <td>{{ p.edad }}</td>
+                <td>{{ p.get_genero_display }}</td>
+                <td>{{ p.telefono }}</td>
+                <td>{{ p.email }}</td>
+                <td>{{ p.especialidad }}</td>
+                <td>
+                    <ul>
+                        {% for alumno in p.alumnos.all %}
+                            <li>{{ alumno.nombre }} {{ alumno.apellido }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    <form method="POST" action="{% url 'eliminar_alumno' alumno.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

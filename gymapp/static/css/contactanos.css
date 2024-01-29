@@ -1,0 +1,45 @@
+/* Estilos para el recuadro del formulario */
+.contact_section .form_container {
+    padding: 45px;
+    border: 2px solid #ccc; /* Define el borde del formulario */
+    border-radius: 10px; /* Define la curvatura de los bordes del formulario */
+    background-color: #f9f9f9; /* Define el color de fondo del formulario */
+}
+
+/* Ajustes para los inputs y botones dentro del formulario */
+.contact_section input,
+.contact_section textarea,
+.contact_section button {
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid #ccc; /* Define el borde de los campos de entrada */
+    border-radius: 5px; /* Define la curvatura de los bordes de los campos de entrada */
+    padding: 10px; /* Ajusta el relleno de los campos de entrada */
+}
+
+.contact_section input.message-box {
+    height: 150px; /* Ajusta la altura del cuadro de mensaje */
+}
+
+.contact_section button {
+    margin-top: 25px;
+    background-color: #ff2953;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.contact_section button:hover {
+    background-color: #d41c4e;
+}
+
+.contact_section .heading_container h2 {
+    background-color: rgba(22, 34, 44, 0.904); /* Color de fondo del h2 */
+    color: #ffffff; /* Color del texto del h2 */
+    padding: 10px 20px; /* Espacio de relleno dentro del h2 */
+    border-radius: 5px; /* Curvatura de los bordes del h2 */
+    display: inline-block; /* Permite que el fondo abarque solo el ancho del texto */
+}

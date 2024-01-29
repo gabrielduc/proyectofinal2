@@ -1,0 +1,49 @@
+/* Servicios*/
+.services-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    }
+  
+  .service-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    }
+  
+  
+  .service-title {
+    background-color: #f0f0f0; 
+    border: 1px solid #1b3039;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    }
+  
+            
+  .service-card:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+    }
+  
+  .selected-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+    }
+  
+    .service-value {
+      background-color: #e0e0e0; 
+      border: 1px solid #1b3039;
+      border-radius: 50px  ;
+      margin-top: 25px;
+      padding: 10px;
+      position: static;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }

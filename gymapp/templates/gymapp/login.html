@@ -1,0 +1,67 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+
+  <!-- ======= Icons ========-->
+
+
+  <!-- ======= CSS ========-->  
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login_content">
+        <img src="{% static 'img/iconogym.png' %}" alt="login img" class="login_img">
+
+        <form action="" class="login_form" method="POST">
+          {% csrf_token %}
+          <div>
+            <h1 class="login_title">
+              <span> lolcito</span>
+            </h1>
+            <p class="login_description">
+              Bienvenido, por favor ingresa tu cuenta
+            </p>
+          </div>
+
+          <div>
+            <div class="login_inputs">
+              <div>
+                <label for="" class="login_label">Usuario</label>
+                <input type="text" name="username" placeholder="Ingresar usuario" required class="login_input">                
+              </div>
+
+              <div>
+                <label for="" class="login_label">Contraseña</label>
+                <div class="login_box">
+                  <input type="password" name="password" placeholder="Ingresar Contraseña" required class="login_input" id="input-pass">
+                  <i class="ri-eye-off-line login_eye" id="input-icon"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="login_check">
+              <input type="checkbox" class="login_check-input">
+              <label for="" class="login_check-label">Recordar Usuario</label>
+            </div>
+          </div>
+
+          <div>
+            <div class="login_buttons">
+              <button class="login_button">Iniciar Sesión</button>
+              <button class="login_button login_button-ghost">Crear Cuenta</button>
+            </div>
+
+            <a href="#" class="login_forgot">¿Olvidaste Contraseña?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  <!-- ======= Login JS ========-->
+  <script src="{% static 'js/login.js' %}"></script> 
+  </body>
+</html>
